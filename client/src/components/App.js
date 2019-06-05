@@ -7,8 +7,10 @@ import * as actions from "../actions";
 import Header from "./Header";
 // const Landing = () => <h2>Landing</h2>;
 import Landing from "./Landing";
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
+// const Dashboard = () => <h2>Dashboard</h2>;
+import Dashboard from "./Dashboard";
+// const SurveyNew = () => <h2>SurveyNew</h2>;
+import SurveyNew from "./surveys/SurveyNew";
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <BrowserRouter>
+        <BrowserRouter className="container">
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
