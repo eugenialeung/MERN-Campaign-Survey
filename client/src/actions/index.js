@@ -12,7 +12,6 @@ export const handleToken = token => async dispatch => {
 };
 
 export const submitSurvey = (values, history) => async dispatch => {
-  // return { type: "submit_survey" };
   const res = await axios.post("/api/surveys", values);
 
   history.push("/surveys");

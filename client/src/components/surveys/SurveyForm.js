@@ -14,16 +14,18 @@ class SurveyForm extends Component {
         <Field
           key={name}
           component={SurveyField}
-          type="text"
+          text="text"
           label={label}
           name={name}
         />
       );
     });
   }
+
   render() {
     return (
       <div>
+        {/* <form onSubmit={this.props.handleSubmit(values => console.log(values))}> */}
         <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <Link to="/surveys" className="red btn-flat white-text">
@@ -43,16 +45,6 @@ function validate(values) {
   const errors = {};
 
   errors.recipients = validateEmails(values.recipients || "");
-
-  // if (!values.title) {
-  //   errors.title = "You must provide a title";
-  // }
-  // if (!values.subject) {
-  //   errors.subject = "You must provide a subject";
-  // }
-  // if (!values.body) {
-  //   errors.body = "You must provide a body";
-  // }
 
   _.each(formFields, ({ name }) => {
     if (!values[name]) {

@@ -1,16 +1,16 @@
 // SurveyNew shows SurveyForm and SurveyFormReview
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { reduxForm } from "redux-form";
 import SurveyForm from "./SurveyForm";
 import SurveyFormReview from "./SurveyFormReview";
 
 class SurveyNew extends Component {
-  // constructor(props) {
-  //   super(props);
+  //   constructor(props) {
+  //     super(props);
 
-  //   this.state = { new: true };
-  // }
-
+  //     this.state = { new: true };
+  //   }
   state = { showFormReview: false };
 
   renderContent() {
@@ -21,7 +21,6 @@ class SurveyNew extends Component {
         />
       );
     }
-
     return (
       <SurveyForm
         onSurveySubmit={() => this.setState({ showFormReview: true })}
@@ -34,6 +33,8 @@ class SurveyNew extends Component {
   }
 }
 
-export default reduxForm({
-  form: "surveyForm"
-})(SurveyNew);
+export default withRouter(
+  reduxForm({
+    form: "surveyForm"
+  })(SurveyNew)
+);
